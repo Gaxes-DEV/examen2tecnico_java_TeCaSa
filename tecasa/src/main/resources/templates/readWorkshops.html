@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en-US" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"></meta>
+    <meta http-equiv="Content-Type" content="text/html"></meta>
+    <title>Workshops list</title>
+</head>
+<body>
+    <div>
+        <h1>Workshops</h1>
+        <button type="button">
+            <a href="/">Principal menu</a>
+        </button>
+        <button>
+            <a href="/readWorkshops">Refresh list</a>
+        </button>
+        <button type="button">
+            <a href="/createWorkshop">New workshop</a>
+        </button>
+    </div>
+    <div>
+        <ul>
+            <div th:each="entry, status : ${workshop}">
+                <li>
+                    <h4>
+                        <a href="/readWorkshops/" th:href="@{/readWorkshops/__${entry.getId()}__}">
+                            <span th:text="${entry.getName()}">TITLE</span>
+                        </a>
+                    </h4>
+                    <p>
+                        <small>
+                            Author: <i></i><span th:text="${entry.getAuthor()}"></span>
+                        </small>
+                    </p>
+                    <p>
+                        <small>
+                            Duration: <i></i><span th:text="${entry.getExecutionTime()}">DURATION_TIME</span>
+                        </small>
+                    </p>
+                </li>
+            </div>
+        </ul>
+    </div>
+</body>
+</html>

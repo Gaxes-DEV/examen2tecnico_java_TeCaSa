@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en-US" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"></meta>
+    <meta http-equiv="Content-Type" content="text/html"></meta>
+    <title>Workshop form</title>
+</head>
+<body>
+<div>
+    <h1>Workshop form</h1>
+    <button type="button">
+        <a href="/">Principal menu</a>
+    </button>
+</div>
+<div>
+    <form action="#" th:action="@{/createWorkshop}" th:object="${workshop}" method="post">
+        <input type="text" th:field="*{id}" id="id" hidden>
+        <br>
+        <label for="name">Title</label>
+        <input type="text" th:field="*{name}" id="name">
+        <br>
+        <label for="author">Author</label>
+        <select th:field="*{author}" id="author">
+            <option value="Andrés Rojas G">Andrés Rojas G</option>>
+            <option value="Aurora Vásquez">Aurora Vásquez</option>>
+            <option value="El Pollo">El Pollo</option>
+            <option value="Fabián Segura I" >Fabián Segura I</option>>
+            <option value="Pedro Pica P">Pedro Pica P</option>>
+        </select>
+        <br>
+        <label for="objective">Objective</label>
+        <textarea type="text" th:field="*{objective}" id="objective" th:width="125" th:height="200"></textarea>
+        <br>
+
+        <div th:if="${category != null and not #lists.isEmpty(category)}">
+            <label for="category">Category</label>
+            <select th:field="*{category}" id="category">
+                <option th:each="entry, status : ${category}"
+                        th:value="${entry.getcName()}"
+                        th:text="${entry.getcName()}" />
+            </select>
+        </div>
+        <div th:if="${category == null or #lists.isEmpty(category)}">
+            <div>"No categories were found, please create some first"</div>
+        </div>
+
+        <br>
+        <label for="keyWords">Key words</label>
+        <input type="text" th:field="*{keyWords}" id="keyWords">
+        <br>
+        <input type="time" th:field="*{executionTime}" id="executionTime" hidden>
+
+        <p><input type="submit" value="Add workshop"></p>
+    </form>
+</div>
+</body>
+</html>

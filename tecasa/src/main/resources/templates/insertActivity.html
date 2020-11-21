@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en-US" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"></meta>
+    <meta http-equiv="Content-Type" content="text/html"></meta>
+    <title>Activity form</title>
+</head>
+<body>
+<div>
+    <h1>Activity form</h1>
+    <button type="button">
+        <a href="/">Menu</a>
+    </button>
+</div>
+<div>
+    <form action="#" th:action="@{/createActivity/__${id}__}" th:object="${activity}" method="post">
+        <input type="text" th:field="*{id}" id="id" hidden>
+        <br>
+        <label for="name">Title</label>
+        <input type="text" th:field="*{aName}" id="name">
+        <br>
+        <label for="description">Description</label>
+        <textarea type="text" th:field="*{description}" id="description" th:width="125" th:height="200"></textarea>
+        <br>
+        <label for="visibleText">Text for public</label>
+        <input type="text" th:field="*{visibleText}" id="visibleText">
+        <br>
+        <label for="aDuration">Duration</label>
+        <input type="time" th:field="*{aDuration}" id="aDuration">
+
+        <p><input type="submit" value="Add activity"></p>
+    </form>
+</div>
+</body>
+</html>

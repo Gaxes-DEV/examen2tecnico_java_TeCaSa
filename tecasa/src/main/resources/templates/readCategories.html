@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en-US" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"></meta>
+    <meta http-equiv="Content-Type" content="text/html"></meta>
+    <title>Categories list</title>
+</head>
+<body>
+    <div>
+        <h1>Categories</h1>
+        <button type="button">
+            <a href="/">Principal menu</a>
+        </button>
+        <button type="button">
+            <a href="/categories">Category menu</a>
+        </button>
+        <button ype="button">
+            <a href="/readCategories">Refresh list</a>
+        </button>
+        <button type="button">
+            <a href="/createCategory">New category</a>
+        </button>
+    </div>
+    <div>
+        <ul>
+            <div th:each="entry, status : ${category}">
+                <li>
+                    <h4>
+                        <a href="/readCategories/" th:href="@{/readCategories/__${entry.getId()}__}">
+                            <span th:text="${entry.getcName()}">TITLE</span>
+                        </a>
+                    </h4>
+                    <p>
+                        <small>
+                            Status: <i></i><span th:text="${entry.getStatus()}">STATUS</span>
+                        </small>
+                    </p>
+                </li>
+            </div>
+        </ul>
+    </div>
+</body>
+</html>

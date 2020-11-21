@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en-US" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"></meta>
+    <meta http-equiv="Content-Type" content="text/html"></meta>
+    <title>Category profile</title>
+</head>
+<body>
+    <div>
+        <h1>Category profile</h1>
+        <button type="button">
+            <a href="/">Principal menu</a>
+        </button>
+        <button type="button">
+            <a href="/categories">Category menu</a>
+        </button>
+        <button type="button">
+            <a href="/readCategories">List categories</a>
+        </button>
+        <button type="button">
+            <a href="/readCategories/edit/" th:href="@{/readCategories/edit/__${id}__}">Edit</a>
+        </button>
+        <button type="button">
+            <a href="/readCategories/delete/" th:href="@{/readCategories/delete/__${id}__}">Delete</a>
+        </button>
+    </div>
+    <div>
+        <ul>
+            <div>
+                <li>
+                    <h4>
+                        <span th:text="${categoryTitle}">TITLE</span>
+                    </h4>
+                    <p>
+                        <small>
+                            Status: <i></i><span th:text="${categoryStatus}"></span>
+                        </small>
+                    </p>
+                </li>
+            </div>
+        </ul>
+        <hr>
+        <hr>
+    </div>
+</body>
+</html>

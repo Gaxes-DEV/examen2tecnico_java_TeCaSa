@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en-US" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"></meta>
+    <meta http-equiv="Content-Type" content="text/html"></meta>
+    <title>Category form</title>
+</head>
+<body>
+<div>
+    <h1>Category form</h1>
+    <button type="button">
+        <a href="/">Principal menu</a>
+    </button>
+    <button type="button">
+        <a href="/categories">Category menu</a>
+    </button>
+</div>
+<div>
+    <form action="#" th:action="@{/createCategory}" th:object="${category}" method="post">
+        <input type="text" th:field="*{id}" id="id" hidden>
+        <br>
+        <label for="name">Name</label>
+        <input type="text" th:field="*{cName}" id="name">
+        <br>
+        <input type="text" th:field="*{status}" id="category" hidden>
+
+        <p><input type="submit" value="Add category"></p>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en-US" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"></meta>
+    <meta http-equiv="Content-Type" content="text/html"></meta>
+    <title>Workshop profile</title>
+</head>
+<body>
+    <div>
+        <h1>Workshop profile</h1>
+        <button type="button">
+            <a href="/">Principal menu</a>
+        </button>
+        <button>
+            <a href="/readWorkshops">List workshops</a>
+        </button>
+        <button>
+            <a href="/readWorkshops/edit/" th:href="@{/readWorkshops/edit/__${id}__}">Edit</a>
+        </button>
+        <button type="button">
+            <a href="/createActivity/" th:href="@{/createActivity/__${id}__}">New activity</a>
+        </button>
+        <button type="button">
+            <a href="//readWorkshops/reportWord/" th:href="@{/readWorkshops/reportWord/__${id}__}">Report</a>
+        </button>
+    </div>
+    <div>
+        <ul>
+            <div>
+                <li>
+                    <h4>
+                        <span th:text="${workShopTitle}">TITLE</span>
+                    </h4>
+                    <p>
+                        <small>
+                            Author: <i></i><span th:text="${workshopAuthor}"></span>
+                        </small>
+                    </p>
+                    <p>
+                        <small>
+                            Duration: <i></i><span th:text="${workshopDurationTime}">DURATION_TIME</span>
+                        </small>
+                    </p>
+                </li>
+            </div>
+        </ul>
+        <hr>
+        <hr>
+    </div>
+
+    <div>
+        <ul>
+            <div th:each="entry, status : ${activities}">
+                <li>
+                    <h4>
+                        <span th:text="${entry.getaName()}">TITLE</span>
+                    </h4>
+                    <p>
+                        <small>
+                            Description: <i></i><span th:text="${entry.getDescription()}"></span>
+                        </small>
+                    </p>
+                    <p>
+                        <small>
+                            Public text: <i></i><span th:text="${entry.getVisibleText()}"></span>
+                        </small>
+                    </p>
+                    <p>
+                        <small>
+                            Duration: <i></i><span th:text="${entry.getaDuration()}"></span>
+                        </small>
+                    </p>
+                </li>
+                <hr>
+            </div>
+        </ul>
+    </div>
+</body>
+</html>
