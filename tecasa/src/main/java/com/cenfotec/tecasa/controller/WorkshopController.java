@@ -112,6 +112,7 @@ public class WorkshopController {
     @RequestMapping(value = "/readWorkshops/edit/{id}", method = RequestMethod.GET)
     public String workshopEdition(@PathVariable("id") Long id, Model model) throws ParseException, java.text.ParseException{
         Workshop workshop = getWorkshop(id).get();
+        model.addAttribute("category", categoryService.getAllCategories());
         model.addAttribute("workshop", workshop);
 
         return "insertWorkshop";
