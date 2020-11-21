@@ -103,6 +103,8 @@ public class WorkshopController {
         model.addAttribute("workShopTitle", workshop.getName());
         model.addAttribute("workshopAuthor", workshop.getAuthor());
         model.addAttribute("workshopDurationTime", workshop.getExecutionTime());
+        model.addAttribute("workshopCategory", workshop.getCategory());
+        model.addAttribute("workshopTags", workshop.getKeyWords());
 
         model.addAttribute("activities", workshop.getActivities());
 
@@ -141,6 +143,8 @@ public class WorkshopController {
         model.addAttribute("workShopTitle", workshop.getName());
         model.addAttribute("workshopAuthor", workshop.getAuthor());
         model.addAttribute("workshopDurationTime", workshop.getExecutionTime());
+        model.addAttribute("workshopCategory", workshop.getCategory());
+        model.addAttribute("workshopTags", workshop.getKeyWords());
 
         model.addAttribute("activities", workshop.getActivities());
 

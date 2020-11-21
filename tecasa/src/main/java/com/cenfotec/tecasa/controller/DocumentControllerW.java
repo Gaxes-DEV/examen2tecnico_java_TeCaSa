@@ -68,6 +68,20 @@ public class DocumentControllerW {
         sectionSubTitleRun.setBold(true);
         sectionSubTitleRun.setFontFamily("Courier");
 
+        XWPFParagraph sectionSubTitle2 = documentWord.createParagraph();
+        XWPFRun sectionSubTitleRun2 = sectionSubTitle2.createRun();
+        sectionSubTitleRun2.setText("Category: " + workshop.getCategory());
+        sectionSubTitleRun2.setColor("0a0a0a");
+        sectionSubTitleRun2.setBold(true);
+        sectionSubTitleRun2.setFontFamily("Courier");
+
+        XWPFParagraph sectionSubTitle3 = documentWord.createParagraph();
+        XWPFRun sectionSubTitleRun3 = sectionSubTitle3.createRun();
+        sectionSubTitleRun3.setText("Tags: " + workshop.getKeyWords());
+        sectionSubTitleRun3.setColor("0a0a0a");
+        sectionSubTitleRun3.setBold(true);
+        sectionSubTitleRun3.setFontFamily("Courier");
+
         XWPFTable activityTable = documentWord.createTable();
         activityTable.setCellMargins(180,250,180,250);
         activityTable.getCTTbl().addNewTblGrid().addNewGridCol().setW(BigInteger.valueOf(6000));
